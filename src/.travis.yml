@@ -1,0 +1,14 @@
+# everytime we use Docker, we need admin permissions
+sudo: required
+services:
+  - docker
+
+# the docker image tag is going to be used only when running 
+# the actions in this file. No access from outside.
+before_install:
+  - docker build -t federicogarcia/k8s-react -f Dockerfile.dev .
+
+# if the result of any of these scripts returns with a status code
+# other than zeto, Travis assumes that the code is broken.
+script:
+  - docker run federicogarcia/k8s-react npm run test -- --coverage
