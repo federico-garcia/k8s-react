@@ -18,7 +18,7 @@ deploy:
   region: "us-east-1"
   app: "k8s-react"
   env: "K8sReact-env"
-  bucket_name: ""
+  bucket_name: "elasticbeanstalk-us-east-1-510033969879"
   bucket_path: "k8s-react"
   on:
     branch: master
